@@ -97,21 +97,15 @@ def answer_question_file_upload():
     train = df.loc[df['name'] == menu]
 
     model = train['model'].tolist()[0]
-    print(model)
     tokenizer = train['model'].tolist()[0]
-    hg_comp = pipeline('question-answering', model=model,
-                           tokenizer=tokenizer)
-    time.sleep(5)
+
     if st.button('Answer Question'):
 
-
+        hg_comp = pipeline('question-answering', model=model,
+                           tokenizer=tokenizer)
+        time.sleep(5)
         answer = []
         #model = st.text_input('Model', value="Default(distilled-bert)")
-
-        count = 0
-
-
-
         for idx, row in data.iterrows():
             context = row['context']
             question = row['question']
@@ -121,7 +115,7 @@ def answer_question_file_upload():
 
 
             #print(answer)
-    time.sleep(15)
+    time.sleep(10)
     data["answer"] = answer
     st.title('The Answer To your Questions')
     st.table(data)
