@@ -6,7 +6,7 @@ import streamlit as st
 import pandas as pd
 from transformers.pipelines import pipeline
 
-url = "http://10.0.0.124:8080/"
+url = "https://mgmt590-assignment3-flask-flmzcdy22a-uc.a.run.app/"
 
 
 def flatten_dict(d):
