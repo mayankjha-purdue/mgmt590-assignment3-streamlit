@@ -6,4 +6,4 @@ RUN pip install -r requirements.txt
 
 COPY webapp.py /app/webapp.py
 
-CMD streamlit run webappe.py
+CMD streamlit run webapp.py
