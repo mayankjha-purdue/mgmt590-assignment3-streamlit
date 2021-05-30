@@ -4,6 +4,6 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt 
 
-COPY answer.py /app/answer.py
+COPY webapp.py /app/webapp.py
 
 CMD streamlit run webappe.py
