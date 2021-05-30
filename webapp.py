@@ -93,16 +93,16 @@ def answer_question_file_upload():
         "Available Models",
         model_list
     )
+    train = df.loc[df['name'] == menu]
+
+    model = train['model'].tolist()[0]
+    tokenizer = train['model'].tolist()[0]
+    hg_comp = pipeline('question-answering', model=model,
+                           tokenizer=tokenizer)
+    time.sleep(5)
     if st.button('Answer Question'):
 
-        train = df.loc[df['name'] == menu]
 
-        model = train['model'].tolist()[0]
-        print(model)
-        tokenizer = train['model'].tolist()[0]
-        hg_comp = pipeline('question-answering', model=model,
-                           tokenizer=tokenizer)
-        time.sleep(5)
 
         answer = []
         #model = st.text_input('Model', value="Default(distilled-bert)")
