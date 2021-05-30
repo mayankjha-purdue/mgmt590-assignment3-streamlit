@@ -5,6 +5,8 @@ import json
 import streamlit as st
 import pandas as pd
 from transformers.pipelines import pipeline
+import warnings
+warnings.filterwarnings('ignore')
 
 url = "https://mgmt590-assignment3-flask-flmzcdy22a-uc.a.run.app/"
 
