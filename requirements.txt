@@ -1,5 +1,5 @@
 Flask==1.1.2
-transformers==4.2.2
+transformers[torch]==4.2.2
 requests==2.25.1
 streamlit==0.82.0
 pandas==1.1.5
