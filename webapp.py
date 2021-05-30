@@ -115,6 +115,7 @@ def answer_question_file_upload():
             context = row['context']
             question = row['question']
             curr_answer = hg_comp({'question': question, 'context': context})['answer']
+            time.sleep(2)
             answer.append(curr_answer)
 
 
