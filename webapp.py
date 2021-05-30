@@ -100,7 +100,7 @@ def answer_question_file_upload():
         tokenizer = train['model'].tolist()[0]
         hg_comp = pipeline('question-answering', model=model,
                            tokenizer=tokenizer)
-        time.sleep(15)
+        time.sleep(5)
 
         answer = []
         #model = st.text_input('Model', value="Default(distilled-bert)")
