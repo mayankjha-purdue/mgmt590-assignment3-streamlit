@@ -10,7 +10,6 @@ warnings.filterwarnings('ignore')
 
 url = "https://mgmt590-assignment3-flask-flmzcdy22a-uc.a.run.app/"
 
-
 def flatten_dict(d):
     """ Returns list of lists from given dictionary """
     l = []
