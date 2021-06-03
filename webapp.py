@@ -5,6 +5,7 @@
 #-----------------------#
 # Import the Libraries  #
 #-----------------------#
+import os
 import time
 import requests
 import json
@@ -16,7 +17,7 @@ from transformers.pipelines import pipeline
 #-----------------------------------------#
 # Calling the Question Answering REST API #
 #-----------------------------------------#
-url = "https://mgmt590-assignment3-flask-flmzcdy22a-uc.a.run.app/"
+url = os.environ.get('URL')
 
 def flatten_dict(d):
     """ Returns list of lists from given dictionary """

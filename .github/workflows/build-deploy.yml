@@ -38,6 +38,7 @@ jobs:
         service: ${{ env.SERVICE }}
         image: gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{  github.sha }}
         region: ${{ env.REGION }}
+        env_vars: URL=${{secrets.URL}}
 
     - name: Show Output
       run: echo ${{ steps.deploy.outputs.url }}
