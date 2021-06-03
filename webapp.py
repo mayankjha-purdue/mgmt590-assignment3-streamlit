@@ -72,6 +72,7 @@ def answer_question():
     # Loading default model if model parameter is not given
     # Get the answer from a POST request to the API
         if model != None:
+            
             response = requests.request("POST", url + "answer?model="+model, headers=headers, data=payload)
             answer = response.json()
         else:
