@@ -248,20 +248,23 @@ def add_models():
     tokenizer = st.text_input('Tokenizer e.g. distilbert-base-uncased-distilled-squad')
 
     # Execute question answering on button press
-    if st.button('Add Model'):
-        payload = json.dumps({
-            "name": model_name,
-            "model": model,
-            "tokenizer": tokenizer
-        })
-        headers = {'Content-Type': 'application/json'}
-        response = requests.request("PUT", url + "models", headers=headers, data=payload)
-        print(response)
-        answer = response.json()
-        df = pd.DataFrame.from_dict(answer, orient='columns')
+    try:
+        if st.button('Add Model'):
+            payload = json.dumps({
+                "name": model_name,
+                "model": model,
+                "tokenizer": tokenizer
+            })
+            headers = {'Content-Type': 'application/json'}
+            response = requests.request("PUT", url + "models", headers=headers, data=payload)
+            print(response)
+            answer = response.json()
+            df = pd.DataFrame.from_dict(answer, orient='columns')
 
-        st.title('List of Updated Models')
-        st.table(df)
+            st.title('List of Updated Models')
+            st.table(df)
+    except:
+        st.text("Input a valid Model Name/Tokenizer")
 
 # This runs by default
 if __name__ == '__main__':
@@ -298,3 +301,4 @@ if __name__ == '__main__':
 
     elif menu_keuze == "File Upload":
         answer_question_file_upload()
+

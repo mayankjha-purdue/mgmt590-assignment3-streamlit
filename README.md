@@ -39,6 +39,16 @@ Use the default values for the other fields.
 
 Finally, we enabled the SSL authentication which is a protocol required for creating a secure connection for user-server interactions and deployed the web app on Google Cloud.  
 
+## REST API ARCHITECTURE
+
+Purpose of the this hands-on project was to create a REST API inference server that serves inferences from a Transformers NLP model
+
+![image1](./images/IMG-0375.PNG)
+
+![image1](./images/IMG-0376.PNG)
+
+![image1](./images/IMG-0377.PNG)
+
 ## Outline
 
 - Part 1 - About Streamlit 
@@ -212,3 +222,4 @@ You can delete a model from the app by choosing this option.
 We added a file uploader where we upload a file and get answer based on question and context
 
 ![file_upload](./images/file_upload.png)
+
