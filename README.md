@@ -211,4 +211,4 @@ You can delete a model from the app by choosing this option.
 
 We added a file uploader where we upload a file and get answer based on question and context
 
-[file_upload](./images/file_upload.png)
+![file_upload](./images/file_upload.png)
