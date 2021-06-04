@@ -1,4 +1,4 @@
-# Assignment 2 : MGMT 590, Production Scale Data Products, Summer 2021
+# Assignment 3 : MGMT 590, Production Scale Data Products, Summer 2021
 
 ## Creating Flask Application - Question Answering
 
