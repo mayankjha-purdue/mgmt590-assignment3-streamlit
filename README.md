@@ -192,18 +192,18 @@ The following is a descriptive guide to use the app:
 Once you access the app, this is the page you should see. Next, navigate to the 'Choose an Option' which should open a drop down menu!
 
 
-![Adding a model](./images/adding_model.png)
+![Addingmodel](./images/adding_model.png)
 
 You can add a model to the app by choosing this option. 
 
 
-![Deleting a model](./images/delete_model.png)
+![Deletingamodel](./images/delete_model.png)
 
 
 You can delete a model from the app by choosing this option. 
 
 
-![Evidence of deletion](./images/delete_model_2.png)
+![Evidenceofdeletion](./images/delete_model_2.png)
 
 
-![Question Answering](./images/QA_Model.png)
+![QuestionAnswering](./images/QA_Model.png)
