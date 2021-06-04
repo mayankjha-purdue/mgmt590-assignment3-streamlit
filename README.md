@@ -11,20 +11,33 @@ The app is deployed at: https://mgmt590-assignment-2-kbmrvvvzgq-uc.a.run.app
 
 ## Learning Outcomes
 
-At the end of the this hands-on training, students will be able to;
+The objective of this project was to deploy a web app created on the foundation of a REST API created previously. The webapp integrates Natural Language Processing algorithms such as the Hugging Face Transformers to enable automated Question Answering. In brief, Question Answering is method of information retrieval that uses Machine Learning to extract answers for questions asked by humans in natural language. In Extractive Question Answering, a context is provided so that the model can refer to it and make predictions on where the answer lies within the passage.  
 
-- Understand client-server software architecture.
+Firstly, we created an API. We used Flask, a web framework for Python that provides functionality for building web applications, including managing HTTP requests and rendering templates. The advantage of using Flask is that applications tend to be written on a blank canvas, so to speak, and so are more suited to a contained application such as our prototype API. Further, we used the prevailing design philosophy of modern APIs called REST. REST is based on four methods defined by the HTTP protocol: POST, GET, PUT, and DELETE. These correspond to the four traditional actions performed on data in a database: CREATE, READ, UPDATE, and DELETE. We finally tested our REST API on Google Cloud Run and got desirable results. 
 
-- Get familiar with Python Flask framework.
+After successfully creating the REST API, the next step was to create a user interface. A user interface is what the final user will experience on the web app. It is built upon a skeleton code which is the REST API. For this purpose, we used the Streamlit framework, in which you can build a browser-based UI using only Python code. Streamlit contains built-in widgets for user input like image-uploading, sliders, text input, and other familiar HTML elements like checkboxes and radio buttons.  
 
-- Automated deploy using a GitHub Action that executes the following on merges into the
-master branch of your GitHub repository
+Next, we created a Postgres database on Google Cloud. PostgreSQL is a powerful, open-source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. It comes with many features aimed to help developers build applications, administrators to protect data integrity and build fault-tolerant environments, and help you manage your data no matter how big or small the dataset. We took the following steps to create the database:  
 
-- Build an API accessible on the public Internet
+Go to the Cloud SQL Instances page. 
 
-- Use git repo to manage the application versioning.
+Select the project and click Continue. 
 
-- Using a SQLite database to log all answered questions
+Click Create Instance. 
+
+Click PostgreSQL. 
+
+Click the Enable API button. 
+
+Enable the Cloud SQL Admin API. 
+
+Create Instance ID. 
+
+Enter a password for the postgres user. 
+
+Use the default values for the other fields. 
+
+Finally, we enabled the SSL authentication which is a protocol required for creating a secure connection for user-server interactions and deployed the web app on Google Cloud.  
 
 ## Outline
 
