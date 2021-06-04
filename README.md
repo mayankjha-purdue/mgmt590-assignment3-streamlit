@@ -28,7 +28,7 @@ master branch of your GitHub repository
 
 ## Outline
 
-- Part 1 - Question Answering using NLP Transformers 
+- Part 1 - About Streamlit 
 
 - Part 2 - Getting to know the Python Flask framework
 
@@ -43,187 +43,45 @@ master branch of your GitHub repository
 
 
 
-## Part 1 - Question Answering using NLP Transformer
+## Part 1 - About Streamlit
 
-Question answering is a task in information retrieval and Natural Language Processing (NLP) that investigates software that can answer questions asked by humans in natural language. In Extractive Question Answering, a context is provided so that the model can refer to it and make predictions on where the answer lies within the passage.
+Streamlit is an open-source Python library that makes it easy to build beautiful custom web-apps for machine learning and data science.
 
-To immediately use a model on a given text, we provide the `pipeline` API. Pipelines group together a pretrained model with the preprocessing that was used during that model's training. Here is how to quickly use a pipeline to classify positive versus negative texts:
+To use it, just pip install streamlit, then import it, write a couple lines of code, and run your script with streamlit run [filename]. Streamlit watches for changes on each save and updates the app live while you’re coding. Code runs from top to bottom, always from a clean state, and with no need for callbacks. It’s a simple and powerful app model that lets you build rich UIs incredibly quickly. To learn more about how Streamlit works, see Main concepts.
 
-```python
-from transformers import pipeline
+You may also want to check out this four-part video recorded at our PyData talk on December 2019. In it we describe the motivation behind Streamlit, then go over how to install and create apps with it.
 
-# Allocate a pipeline for sentiment-analysis
-classifier = pipeline('sentiment-analysis')
-classifier('We are very happy to introduce pipeline to the transformers repository.')
-[{'label': 'POSITIVE', 'score': 0.9996980428695679}]
-```
+## Installation Steps
 
-The second line of code downloads and caches the pretrained model used by the pipeline, while the third evaluates it on the given text. Here the answer is "positive" with a confidence of 99.97%.
+1. Make sure that you have Python 3.6 or greater installed.
+2. Install Streamlit using PIP:
+   * pip install streamlit
 
-Many NLP tasks have a pre-trained `pipeline` ready to go. For example, we can easily extract question answers given context:
 
-``` python
-from transformers import pipeline
 
-# Allocate a pipeline for question-answering
-question_answerer = pipeline('question-answering')
-question_answerer({
-...     'question': 'What is the name of the repository ?',
-...     'context': 'Pipeline has been included in the huggingface/transformers repository'
-... })
-{'score': 0.30970096588134766, 'start': 34, 'end': 58, 'answer': 'huggingface/transformers'}
-
-```
-
-In addition to the answer, the pretrained model used here returned its confidence score, along with the start position and end position of the answer in the tokenized sentence. You can learn more about the tasks supported by the `pipeline` API in [this tutorial](https://huggingface.co/transformers/task_summary.html).
-
-To download and use any of the pretrained models on your given task, all it takes is three lines of code. Here is the PyTorch version:
-```python
-from transformers import AutoTokenizer, AutoModel
-
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-model = AutoModel.from_pretrained("bert-base-uncased")
-
-inputs = tokenizer("Hello world!", return_tensors="pt")
-outputs = model(**inputs)
-```
-And here is the equivalent code for TensorFlow:
-```python
-from transformers import AutoTokenizer, TFAutoModel
-
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
-model = TFAutoModel.from_pretrained("bert-base-uncased")
-
-inputs = tokenizer("Hello world!", return_tensors="tf")
-outputs = model(**inputs)
-```
-
-The tokenizer is responsible for all the preprocessing the pretrained model expects, and can be called directly on a single string (as in the above examples) or a list. It will output a dictionary that you can use in downstream code or simply directly pass to your model using the ** argument unpacking operator.
-
-The model itself is a regular [Pytorch `nn.Module`](https://pytorch.org/docs/stable/nn.html#torch.nn.Module) or a [TensorFlow `tf.keras.Model`](https://www.tensorflow.org/api_docs/python/tf/keras/Model) (depending on your backend) which you can use normally. [This tutorial](https://huggingface.co/transformers/training.html) explains how to integrate such a model into a classic PyTorch or TensorFlow training loop, or how to use our `Trainer` API to quickly fine-tune on a new dataset.
-
-## Why should I use transformers?
-
-1. Easy-to-use state-of-the-art models:
-    - High performance on NLU and NLG tasks.
-    - Low barrier to entry for educators and practitioners.
-    - Few user-facing abstractions with just three classes to learn.
-    - A unified API for using all our pretrained models.
-
-1. Lower compute costs, smaller carbon footprint:
-    - Researchers can share trained models instead of always retraining.
-    - Practitioners can reduce compute time and production costs.
-    - Dozens of architectures with over 2,000 pretrained models, some in more than 100 languages.
-
-1. Choose the right framework for every part of a model's lifetime:
-    - Train state-of-the-art models in 3 lines of code.
-    - Move a single model between TF2.0/PyTorch frameworks at will.
-    - Seamlessly pick the right framework for training, evaluation and production.
-
-1. Easily customize a model or an example to your needs:
-    - We provide examples for each architecture to reproduce the results published by its original authors.
-    - Model internals are exposed as consistently as possible.
-    - Model files can be used independently of the library for quick experiments.
-
-## Why shouldn't I use transformers?
-
-- This library is not a modular toolbox of building blocks for neural nets. The code in the model files is not refactored with additional abstractions on purpose, so that researchers can quickly iterate on each of the models without diving into additional abstractions/files.
-- The training API is not intended to work on any model but is optimized to work with the models provided by the library. For generic machine learning loops, you should use another library.
-- While we strive to present as many use cases as possible, the scripts in our [examples folder](https://github.com/huggingface/transformers/tree/master/examples) are just that: examples. It is expected that they won't work out-of-the box on your specific problem and that you will be required to change a few lines of code to adapt them to your needs.
-
-## Installation
-
-### With pip
-
-This repository is tested on Python 3.6+, Flax 0.3.2+, PyTorch 1.3.1+ and TensorFlow 2.3+.
-
-You should install 🤗 Transformers in a [virtual environment](https://docs.python.org/3/library/venv.html). If you're unfamiliar with Python virtual environments, check out the [user guide](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
-
-First, create a virtual environment with the version of Python you're going to use and activate it.
-
-Then, you will need to install at least one of Flax, PyTorch or TensorFlow.
-Please refer to [TensorFlow installation page](https://www.tensorflow.org/install/), [PyTorch installation page](https://pytorch.org/get-started/locally/#start-locally) and/or [Flax installation page](https://github.com/google/flax#quick-install) regarding the specific install command for your platform.
-
-When one of those backends has been installed, 🤗 Transformers can be installed using pip as follows:
+## ## Usage
+### Without Docker
+To run the dashboard, please execute the following from the root directory:
 
 ```bash
-pip install transformers
+pip3 install -r requirements.txt
+streamlit run dashboard.py
 ```
 
-If you'd like to play with the examples or need the bleeding edge of the code and can't wait for a new release, you must [install the library from source](https://huggingface.co/transformers/installation.html#installing-from-source).
-
-### With conda
-
-Since Transformers version v4.0.0, we now have a conda channel: `huggingface`.
-
-🤗 Transformers can be installed using conda as follows:
-
-```shell script
-conda install -c huggingface transformers
+When run locally, the dashboard is accessible here:
+```
+http://localhost:8501
 ```
 
-Follow the installation pages of Flax, PyTorch or TensorFlow to see how to install them with conda.
 
-
-
-## Part 2 - Getting to know the Python Flask framework
-
-![Flask](./flask.png)
-
-Flask is a lightweight [WSGI](https://wsgi.readthedocs.io/) web
-application framework. It is designed to make getting started quick and
-easy, with the ability to scale up to complex applications. It began as
-a simple wrapper around
-[Werkzeug](https://werkzeug.palletsprojects.com/) and
-[Jinja](https://jinja.palletsprojects.com/) and has become one of the
-most popular Python web application frameworks.
-
-Flask offers suggestions, but doesn't enforce any dependencies or
-project layout. It is up to the developer to choose the tools and
-libraries they want to use. There are many extensions provided by the
-community that make adding new functionality easy.
-
-Installing
-----------
-
-Install and update using
-[pip](https://pip.pypa.io/en/stable/quickstart/):
-
-``` {.sourceCode .text}
-$ pip install -U Flask
-```
-
-A Simple Example
-----------------
-
-```python
-# save this as webapp.py
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Hello, World!"
-```
+### With Docker
+To run the web app using Docker containers, please execute the following from the root directory:
 
 ```bash
-$ flask run
-  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+docker build -t dashboard .
+docker run -d --name dashboard -p 8501:8501 dashboard
 ```
 
-# Flask RESTful API SQLite3
-
-This project is created with `python` and `flask` and for the database utility
-I have used `sqlite3`.
-
-
-## 
-
-The API information will be stored in a file `prodscale.db` which will act as the SQLite database.
-To generate this file, *and with it the tables*, a function `create_table` is triggered from `app.py`.
-
-You will then be able to add new data and do  CRUD operation(s).
 
 ## Part -3 Dependencies
 
