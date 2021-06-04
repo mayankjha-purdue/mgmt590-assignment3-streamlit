@@ -175,7 +175,7 @@ def recent_answers():
         headers = {'Content-Type': 'application/json'}
 
         # Passing the default values if the model is not selected
-        if model != "None":
+        if model != None:
             response = requests.request("GET", url + "answer?model=" + model + "&start=" + start + "&end=" + end,
                                         headers=headers)
             answer = response.json()
