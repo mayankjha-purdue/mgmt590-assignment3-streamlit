@@ -41,6 +41,11 @@ Finally, we enabled the SSL authentication which is a protocol required for crea
 
 ## REST API ARCHITECTURE
 
+The following diagram gives a rough outline of our REST API Application
+
+![image1](./images/flow.png)
+
+
 Purpose of the this hands-on project was to create a REST API inference server that serves inferences from a Transformers NLP model
 
 ![image1](./images/IMG-0375.PNG)
@@ -111,12 +116,19 @@ docker run -d --name dashboard -p 8501:8501 dashboard
 The Dependencies are in the `requirements.txt` namely:
 
 Flask==1.1.2
+
 transformers[torch]==4.2.2
+
 requests==2.25.1
+
 streamlit==0.82.0
+
 pandas==1.1.5
+
 pytest==6.2.4
+
 freezegun==1.1.0
+
 mock==4.0.3
 
 if you want to exactly rebuild the development environment
