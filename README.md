@@ -197,13 +197,13 @@ Once you access the app, this is the page you should see. Next, navigate to the 
 You can add a model to the app by choosing this option. 
 
 
-![Deleting a model](./images/delete_model.png)
+![Deleting a model](./images/delete_model.PNG)
 
 
 You can delete a model from the app by choosing this option. 
 
 
-![Evidence of deletion](./images/delete_model_2.png)
+![Evidence of deletion](./images/delete_model_2.PNG)
 
 
-![Question Answering](./images/QA_Model.png)
+![Question Answering](./images/QA_Model.PNG)
