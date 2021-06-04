@@ -6,6 +6,7 @@ Purpose of the this hands-on project was to create a REST API inference server t
 The app is deployed at: https://mgmt590-assignment-2-kbmrvvvzgq-uc.a.run.app
 
 ![sqlite-python-flask](./images/workingwithstfileuploads_streamlit_jcharistech.png)
+
 ![google cloud](./images/gcl.png)
 
 ## Learning Outcomes
