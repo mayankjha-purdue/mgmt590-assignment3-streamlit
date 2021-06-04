@@ -5,7 +5,7 @@
 Purpose of the this hands-on project was to create a REST API inference server that serves inferences from a Transformers NLP model
 The app is deployed at: https://mgmt590-assignment-2-kbmrvvvzgq-uc.a.run.app
 
-![sqlite-python-flask](./images/images.jpeg)
+![sqlite-python-flask](./images/workingwithstfileuploads_streamlit_jcharistech.png)
 ![google cloud](./images/google cloud.gif)
 
 ## Learning Outcomes
